@@ -1,11 +1,1 @@
-import os
-import csv
 
-months = []
-profit_loss_changes = []
-
-count_months = 0
-net_profit_loss = 0
-previous_month_profit_loss = 0
-current_month_profit_loss = 0
-profit_loss_change = 0
