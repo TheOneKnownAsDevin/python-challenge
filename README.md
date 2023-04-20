@@ -19,20 +19,20 @@ with open(in_path) as revenue_data:
     for row in reader:
 
         total_months = total_months + 1
-        total_revenue = total_revenue + int(row["Revenue"])
+        total_revenue = total_revenue + int(row["Profit/Losses"])
 
-        revenue_change_list = int(row["Revenue"]) - previous_revenue
-        previous_revenue = int(row["Revenue"])
-        revenue_change_list = revenue_change_list + [revenue_change_list]
+        revenue_change = int(row["Profit/Losses"]) - previous_revenue
+        previous_revenue = int(row["Profit/Losses"])
+        revenue_change_list = revenue_change_list + [revenue_change]
         month_of_changes = month_of_changes + [row["Date"]]
 
-        if (revenue_change_list > greatest_increase[1]):
+        if (revenue_change > greatest_increase[1]):
             greatest_increase[0] = row["Date"]
-            greatest_increase[1] = revenue_change_list
+            greatest_increase[1] = revenue_change
 
-            if (revenue_change_list < greatest_decrease[1]):
+            if (revenue_change < greatest_decrease[1]):
                 greatest_decrease[0] = row["Date"]
-                greatest_decrease[1] = revenue_change_list
+                greatest_decrease[1] = revenue_change
 
 revenue_avg = sum(revenue_change_list) / len(revenue_change_list)
 
